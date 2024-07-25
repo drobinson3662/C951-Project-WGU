@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <template>I have no answer for that.</template>
+  </category>
+  
+  <category>
+    <pattern>HELLO</pattern>
+    <template>
+      <message>Hello! My name is Bottty and I'm here to help you figure out your career! What's your name?</message>
+      <message>Please respond with "My name is..."</message>
+    </template>
+  </category>
+  
+  <!-- Get name, Ask what major is -->
+  <category>
+    <pattern>MY NAME IS *</pattern>
+    <template>
+      <message>Hello, <set name="username"><star /></set>! Glad to be working with you!</message>
+      <message>To get started, can you tell me what your major is?</message>
+      
+      <button>
+        <text>Computer Science</text>
+        <postback>CS</postback>
+      </button>
+      
+      <button>
+        <text>Something Else</text>
+        <postback>NOT CS</postback>
+      </button>
+    </template>
+  </category>
+  
+  <!--CS major - Ask if they want advice -->
+  <category>
+    <pattern>CS</pattern>
+    <template>
+      <message>Awesome! Would you like some career advice?</message>
+      <button>
+        <text>Yes, please!</text>
+        <postback>ADVICE</postback>
+      </button>
+      
+      <button>
+        <text>Actually, no.</text>
+        <postback>NO</postback>
+      </button>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>NOT CS</pattern>
+    <template>
+      <message>I'm sorry, I can really only help Computer Science majors!</message>
+      <message>Goodbye!</message>
+    </template>
+  </category>
+  
+  <!--User wants career advice-->
+  <category>
+    <pattern>ADVICE</pattern>
+    <template>
+      <message>Awesome! I'm glad to help!</message>
+      <message>What interests you the most?</message>
+      <button>
+        <text>Programming</text>
+        <postback>PROGRAMMING</postback>
+      </button>
+      
+      <button>
+        <text>Security</text>
+        <postback>SEC</postback>
+      </button>
+      
+      <button>
+        <text>Networking</text>
+        <postback>NETWORKING</postback>
+      </button>
+      
+      <button>
+        <text>Working with Data</text>
+        <postback>DATA</postback>
+      </button>
+      
+      <button>
+        <text>Helping companies use technology</text>
+        <postback> CONSULTANT </postback>
+      </button>
+    </template>
+  </category>
+  
+  <!-- User doesn't want career advice -->
+  <category>
+    <pattern>NO</pattern>
+    <template>
+      <message>Ok! I understand!</message>
+      <message>If you change your mind just say "Hello"! I'll be here :)</message>
+    </template>
+  </category>
+  
+  <!-- User likes programming -->
+  <category>
+      <pattern> PROGRAMMING </pattern>
+      <template>
+          <message> It sounds like you would love being a software engineer!</message>
+          <link>
+              <text>I searched the web! It looks like you can find out a lot more about the career path here</text>
+              <url>https://www.springboard.com/blog/software-engineering/software-engineer-career-path/</url>
+          </link>
+          <message> Did I help? </message>
+      <button>
+        <text>Yes!</text>
+        <postback>Quit</postback>
+      </button>
+      
+      <button>
+        <text>No, Let's try again!</text>
+        <postback>ADVICE</postback>
+      </button>
+      </template>
+  </category>
+  
+  <!-- User likes security -->
+  <category>
+      <pattern> SEC </pattern>
+      <template>
+          <message> It sounds like you would love being a cybersecurity analyst!</message>
+          <link>
+              <text>I searched the web! It looks like you can find out a lot more about the career path here</text>
+              <url>https://www.cyberseek.org/pathway.html</url>
+          </link>
+          <message> Did I help? </message>
+      <button>
+        <text>Yes!</text>
+        <postback>Quit</postback>
+      </button>
+      
+      <button>
+        <text>No, Let's try again!</text>
+        <postback>ADVICE</postback>
+      </button>
+      </template>
+  </category>
+  
+  <!-- User likes networking -->
+  <category>
+      <pattern> NETWORKING </pattern>
+      <template>
+          <message> It sounds like you would love working in IT! A systems admin would be a good role.</message>
+          <link>
+              <text>I searched the web! It looks like you can find out a lot more about the career path here</text>
+              <url>https://www.sans.org/blog/system-administrator-salary-skills-and-career-path/</url>
+          </link>
+          <message> Did I help? </message>
+      <button>
+        <text>Yes!</text>
+        <postback>Quit</postback>
+      </button>
+      
+      <button>
+        <text>No, Let's try again!</text>
+        <postback>ADVICE</postback>
+      </button>
+      </template>
+  </category>
+  
+  <!-- User likes data -->
+  <category>
+      <pattern> DATA </pattern>
+      <template>
+          <message> It sounds like you would love being a database admin or a data engineer!</message>
+          <link>
+              <text>I searched the web! It looks like you can find out a lot more about the career path here</text>
+              <url>https://www.coursera.org/articles/what-does-a-data-engineer-do-and-how-do-i-become-one</url>
+          </link>
+          <message> Did I help? </message>
+      <button>
+        <text>Yes!</text>
+        <postback>Quit</postback>
+      </button>
+      
+      <button>
+        <text>No, Let's try again!</text>
+        <postback>ADVICE</postback>
+      </button>
+      </template>
+  </category>
+  
+  <!-- User likes Consulting -->
+  <category>
+      <pattern> CONSULTANT </pattern>
+      <template>
+          <message> It sounds like you would love being a technology consultant!</message>
+          <link>
+              <text>I searched the web! It looks like you can find out a lot more about the career path here</text>
+              <url>https://4dayweek.io/career-path/technology-consultant</url>
+          </link>
+          <message> Did I help? </message>
+      <button>
+        <text>Yes!</text>
+        <postback>Quit</postback>
+      </button>
+      
+      <button>
+        <text>No, Let's try again!</text>
+        <postback>ADVICE</postback>
+      </button>
+      </template>
+  </category>
+  
+  
+  <category>
+      <pattern>QUIT</pattern>
+      <template>Thank you for letting me help! Anytime you want my help just say hello again!</template>
+  </category>
+</aiml>
